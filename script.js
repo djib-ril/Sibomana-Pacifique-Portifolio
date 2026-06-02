@@ -73,13 +73,17 @@ loginForm.addEventListener('submit', async (e) => {
     }
 });
 
+const body = document.querySelector("body");
+
 // UI View Controller Function
 function showAdminPanel() {
     myForm.style.visibility = 'hidden'; 
     adminPanel.style.display = 'block'; 
     portifolio.style.display = "none";
     overlay.style.visibility = "hidden";
-    
+    body.style.backgroundColor = "rgba(0, 0, 0, 0.95)";
+    body.style.color = "white";
+
     // Call the function if defined elsewhere in your file
     if (typeof fetchCurrentData === "function") {
         fetchCurrentData(); 
@@ -134,3 +138,10 @@ async function loadPortfolioData() {
         document.querySelector('#portfolio-name').textContent = "No Profile Found";
     }
 }
+
+const logOut = document.querySelector("#logout-btn");
+
+logOut.addEventListener('click', function (){
+    adminPanel.style.display = 'none'; 
+    portifolio.style.display = "block";
+});

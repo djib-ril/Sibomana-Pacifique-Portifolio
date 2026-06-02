@@ -289,21 +289,20 @@
     <!--Creating the Admin Information management hidden page-->
 
     <div id="admin-panel" style="display: none;">
-    <h2>Welcome Admin! Update your Portfolio</h2>
     
     <form id="update-form">
-        <label for="new-name">Name:</label>
+        <h2>Welcome Admin! Update your Portfolio</h2><br>
+        <label for="new-name"></label><br>
         <input type="text" id="new-name" placeholder="Enter your name">
 
-        <label for="new-bio">Bio:</label>
-        <textarea id="new-bio" placeholder="Enter your bio"></textarea>
-
-        <button type="submit">Save Changes</button>
+        <label for="new-bio"></label><br>
+        <textarea id="new-bio" placeholder="Enter your bio"></textarea><br>
+        <div class="log" style="display: flex;gap: 20px;">
+        <button type="submit" id="save">Save Changes</button>
+        <button id="logout-btn">Logout</button>
+        </div>
     </form>
-    
-    <button id="logout-btn">Logout</button>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>

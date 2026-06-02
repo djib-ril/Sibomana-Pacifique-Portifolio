@@ -667,3 +667,33 @@ body.light-theme .touch button{
 body.light-theme #panel{
     color: orange !important;
 }
+
+#logout-btn{
+    padding: 15px;
+    background: rgb(245, 41, 41);
+    width: 200px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+#update-form #save{
+    width: 250px;
+    background: lightgreen;
+}
+#update-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#update-form input,
+#update-formbutton{
+    width: 50%;
+}
+#new-bio{
+    height: 100px;
+    width: 50%;
+    border: none;
+    background: whitesmoke;
+    padding: 20px;
+}
