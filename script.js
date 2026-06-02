@@ -106,26 +106,31 @@ updateForm.addEventListener('submit', async (e) => {
 });
 
 
-// Function to pull data from Supabase and show it to visitors
+// Automatically run this function whenever anyone opens the website
+window.addEventListener('DOMContentLoaded', loadPortfolioData);
+
 async function loadPortfolioData() {
     const { data, error } = await supabaseClient
         .from('profile')
         .select('name, bio')
-        .eq('id', 1)
-        .single(); // Tells Supabase we only expect 1 row back
+        .order('id', { ascending: false }) // <-- Sorts table so the highest ID (newest) is first
+        .limit(1); // <-- Only downloads that single newest row
 
     if (error) {
         console.error("Error loading portfolio data:", error.message);
-    } else if (data) {
-        // Target your public HTML elements and change their text
-        document.querySelector('#portfolio-name').textContent = data.name;
-        document.querySelector('#portfolio-bio').textContent = data.bio;
+        document.querySelector('#portfolio-name').textContent = "Error loading data";
+        return;
+    }
+
+    if (data && data.length > 0) {
+        const profile = data[0]; // This is now safely your newest entry!
         
-        // Also pre-fill the admin form fields so you see current info when logging in
-        document.querySelector('#new-name').value = data.name;
-        document.querySelector('#new-bio').value = data.bio;
+        document.querySelector('#portfolio-name').textContent = profile.name;
+        document.querySelector('#portfolio-bio').textContent = profile.bio;
+        
+        document.querySelector('#new-name').value = profile.name;
+        document.querySelector('#new-bio').value = profile.bio;
+    } else {
+        document.querySelector('#portfolio-name').textContent = "No Profile Found";
     }
 }
-
-// Automatically run this function whenever anyone opens the website
-window.addEventListener('DOMContentLoaded', loadPortfolioData);
