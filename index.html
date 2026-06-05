@@ -10,7 +10,8 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <div id="portifolio_content"><div class="overlay"></div>
+    <div id="portifolio_content">
+        <div class="overlay"></div>
     <section class="landing">
         <div class="form" id="myform">
     <form id="login">
@@ -289,20 +290,58 @@
     <!--Creating the Admin Information management hidden page-->
 
     <div id="admin-panel" style="display: none;">
-    
-    <form id="update-form">
-        <h2>Welcome Admin! Update your Portfolio</h2><br>
-        <label for="new-name"></label><br>
-        <input type="text" id="new-name" placeholder="Enter your name">
-
-        <label for="new-bio"></label><br>
-        <textarea id="new-bio" placeholder="Enter your bio"></textarea><br>
-        <div class="log" style="display: flex;gap: 20px;">
-        <button type="submit" id="save">Save Changes</button>
-        <button id="logout-btn">Logout</button>
+    <div class="admin-wrapper">
+        
+        <div class="admin-header">
+            <h2><ion-icon name="settings-outline"></ion-icon> Information Management</h2>
+            <p>Welcome back, Admin! Control your public portfolio data below.</p>
         </div>
-    </form>
+
+        <div class="admin-card">
+            <h3><ion-icon name="person-outline" style="color: orange;"></ion-icon> Update Portfolio Information</h3>
+            <form id="update-form">
+                <div class="input-group">
+                    <label for="new-name">Display Name</label>
+                    <input type="text" id="new-name" placeholder="Enter your professional name">
+                </div>
+
+                <div class="input-group">
+                    <label for="new-bio">Professional Biography / Tags</label>
+                    <textarea id="new-bio" placeholder="Enter your bio (e.g., Electronics Excellence | STEM Scholar)"></textarea>
+                </div>
+
+                <div class="admin-actions">
+                    <button type="submit" id="save">
+                        <ion-icon name="checkmark-circle-outline"></ion-icon> Save Changes
+                    </button>
+                    <button type="button" id="logout-btn">
+                        <ion-icon name="log-out-outline"></ion-icon> Logout Panel
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="admin-card security-card">
+            <h3><ion-icon name="lock-closed-outline" style="color: lightgreen;"></ion-icon> Security Settings</h3>
+            <form id="password-form">
+                <div class="input-group">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" placeholder="Confirm current password" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="new-password">New Secure Password</label>
+                    <input type="password" id="new-password" placeholder="Enter minimum 6 characters" required minlength="6">
+                </div>
+
+                <button type="submit" id="update-pass-btn">
+                    <ion-icon name="shield-checkmark-outline"></ion-icon> Update Secret Key
+                </button>
+            </form>
+        </div>
+
     </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>

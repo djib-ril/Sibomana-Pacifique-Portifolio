@@ -697,3 +697,188 @@ body.light-theme #panel{
     background: whitesmoke;
     padding: 20px;
 }
+
+
+/* ==========================================
+   ADMIN PANEL DASHBOARD STYLES (ADDED ONLY)
+   ========================================== */
+
+#admin-panel {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #050505 0%, #121212 100%);
+    color: #ffffff;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.admin-wrapper {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(180deg, rgba(245, 173, 41, 0.05), transparent);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-header h2 {
+    font-size: 28px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.admin-header p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.admin-card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.admin-card h3 {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 12px;
+}
+
+/* Group formatting to fix widths */
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Overriding old inputs to cleanly match layout */
+#admin-panel input[type="text"],
+#admin-panel input[type="password"],
+#admin-panel textarea {
+    width: 100% !important; /* Forces input to use full grid space */
+    padding: 14px 18px !important;
+    background: #181818 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    color: #ffffff !important;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+#admin-panel textarea {
+    height: 120px !important;
+    resize: none;
+}
+
+#admin-panel input:focus,
+#admin-panel textarea:focus {
+    outline: none !important;
+    border-color: orange !important;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
+}
+
+.security-card input:focus {
+    border-color: lightgreen !important;
+    box-shadow: 0 0 10px rgba(144, 238, 144, 0.2) !important;
+}
+
+/* Button Formatting Controls */
+.admin-actions {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#admin-panel button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px !important;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+#update-form #save {
+    flex: 2;
+    background: linear-gradient(90deg, #87f587, #56e856) !important;
+    color: #000000 !important;
+    border: none !important;
+    width: auto !important;
+}
+
+#update-form #save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(86, 232, 86, 0.3);
+}
+
+#logout-btn {
+    flex: 1;
+    background: rgba(245, 41, 41, 0.15) !important;
+    color: #ff5c5c !important;
+    border: 1px solid rgba(245, 41, 41, 0.4) !important;
+    width: auto !important;
+}
+
+#logout-btn:hover {
+    background: rgb(245, 41, 41) !important;
+    color: #ffffff !important;
+}
+
+#update-pass-btn {
+    width: 100% !important;
+    background: transparent !important;
+    border: 1px solid orange !important;
+    color: orange !important;
+}
+
+#update-pass-btn:hover {
+    background: rgba(255, 165, 0, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+/* Responsive Scaling */
+@media(max-width: 768px) {
+    .admin-card {
+        padding: 20px;
+    }
+    .admin-actions {
+        flex-direction: column;
+    }
+}
